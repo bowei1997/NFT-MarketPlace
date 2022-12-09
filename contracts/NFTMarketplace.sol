@@ -171,7 +171,7 @@ contract NFTMarketplace is ERC721URIStorage {
         idToListedToken[tokenId].seller = payable(msg.sender);
         _itemsSold.increment();
 
-        //Actually transfer the token to the new owner
+        //Actually transfer the token to the new owner, so the ownership will change
         _transfer(address(this), msg.sender, tokenId);
         //approve the marketplace to sell NFTs on your behalf
         approve(address(this), tokenId);
